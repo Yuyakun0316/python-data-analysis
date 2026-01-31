@@ -27,6 +27,8 @@ total_row = pd.DataFrame([{
   "ファイル名": "合計", 
   "請求金額": total_price, 
   "件名": "-", 
+  "消費税": total_price * 0.1,
+  "税込金額": total_price * 1.1
   }])
 df = pd.concat([df, total_row], ignore_index=True)
 
