@@ -14,3 +14,15 @@ df = pd.DataFrame(data)
 
 # 2. 【お掃除】穴あきデータ（NaN）を「不明」という文字で埋める
 df["ステータス"] = df["ステータス"].fillna("不明")
+
+# 3. 【絞り込み】金額が 50,000円 以上のデータだけを抽出する（高額案件リスト）
+high_value_df = df[df["金額"] >= 50000]
+
+# 4. 【並び替え】金額が高い順に並び替える
+high_value_df = high_value_df.sort_values(by="金額", ascending=False)
+
+# 5. 結果を保存
+high_value_df.to_excel("high_value_invoices.xlsx", index=False)
+
+print("クリーニングと高額案件の抽出が完了しました！")
+print(high_value_df)
