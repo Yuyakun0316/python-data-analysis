@@ -16,3 +16,15 @@ customer_master = [
     {"顧客ID": "C003", "名前": "鈴木商店", "地域": "福岡"},
 ]
 df_customers = pd.DataFrame(customer_master)
+
+# 3. 【合体】顧客IDをキーにして、売上データに名前を紐付ける（VLOOKUPと同じ）
+df_merged = pd.merge(df_sales, df_customers, on="顧客ID", how="left")
+
+# 4. 【整理】「地域」の情報はいらないので消しちゃおう
+df_final = df_merged.drop(columns=["地域"])
+
+# 5. 保存
+df_final.to_excel("final_sales_report.xlsx", index=False)
+
+print("データの紐付けと整理が完了しました")
+print(df_final)
