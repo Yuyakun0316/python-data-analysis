@@ -8,3 +8,11 @@ sales_data = [
     {"顧客ID": "C003", "商品": "キーボード", "売上": 8000},
 ]
 df_sales = pd.DataFrame(sales_data)
+
+# 2. 「顧客マスタ」データ（顧客IDと名前の対応表）
+customer_master = [
+    {"顧客ID": "C001", "名前": "田中商事", "地域": "東京"},
+    {"顧客ID": "C002", "名前": "佐藤産業", "地域": "大阪"},
+    {"顧客ID": "C003", "名前": "鈴木商店", "地域": "福岡"},
+]
+df_customers = pd.DataFrame(customer_master)
