@@ -10,3 +10,7 @@ raw_data = [
     {"支店": "東京本店", "担当": "山本", "売上": 50000},
 ]
 df = pd.DataFrame(raw_data)
+
+# 2. 【集計】支店ごとに「売上の合計」と「取引件数」を計算する
+# これがExcelのピボットテーブルと同じ役割
+summary_df = df.groupby("支店")["売上"].agg(["sum", "count"]).reset_index()
