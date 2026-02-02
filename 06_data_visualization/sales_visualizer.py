@@ -19,3 +19,16 @@ df = pd.read_csv("sales_data.csv")
 # 3. 【グラフ作成】折れ線グラフを描く
 plt.figure(figsize=(8, 5)) # グラフのサイズ設定
 plt.plot(df["月"], df["売上"], marker="o", color="blue", linestyle="-")
+
+# 4. 【装飾】グラフにタイトルやラベルをつける
+# ※日本語だと文字化けすることがあるので、一旦英語で書くのがコツ
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Sales (Yen)")
+plt.grid(True) # 網掛けを追加
+
+# 5. 【保存】グラフを画像（PNG）として保存する
+plt.savefig("sales_chart.png")
+
+print("CSVの読み込みとグラフ画像の作成が完了しました！")
+print(df)
