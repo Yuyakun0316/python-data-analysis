@@ -15,3 +15,7 @@ with open("sales_data.csv", "w", encoding="utf-8") as f:
 
 # 2. 【読み込み】CSVファイルをpandasで読み込む
 df = pd.read_csv("sales_data.csv")
+
+# 3. 【グラフ作成】折れ線グラフを描く
+plt.figure(figsize=(8, 5)) # グラフのサイズ設定
+plt.plot(df["月"], df["売上"], marker="o", color="blue", linestyle="-")
