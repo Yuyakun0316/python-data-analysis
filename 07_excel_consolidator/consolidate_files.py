@@ -22,6 +22,9 @@ for file in file_list:
 # 4. 【合体】溜まったデータを縦に一つに繋げる
 combined_df = pd.concat(all_data, ignore_index=True)
 
+# 【追加】月できちんと並び替える（01→02→03にする）
+combined_df = combined_df.sort_values(by="月")
+
 # 5. 保存
 combined_df.to_excel("annual_sales_combined.xlsx", index=False)
 
