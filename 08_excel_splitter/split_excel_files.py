@@ -18,3 +18,15 @@ os.makedirs(output_dir, exist_ok=True)
 # 3. 【重要】「支店」の種類を抜き出す（東京、大阪、福岡）
 branches = df["支店"].unique()
 print(f"分割する支店リスト: {branches}")
+
+# 4. 【分割】支店ごとにデータを絞り込んで保存する
+for branch in branches:
+    # その支店だけのデータに絞り込む
+    branch_df = df[df["支店"] == branch]
+    
+    # ファイル名を作って保存（output/東京.xlsx など）
+    file_path = os.path.join(output_dir, f"{branch}.xlsx")
+    branch_df.to_excel(file_path, index=False)
+    print(f"作成完了: {file_path}")
+
+print("すべての支店別ファイルの分割が完了しました！")
