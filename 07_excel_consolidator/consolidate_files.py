@@ -15,6 +15,8 @@ print(f"見つかったファイル: {file_list}")
 all_data = []
 for file in file_list:
     df = pd.read_excel(file)
+    # ここに「ファイル名」という新しい列を追加して、ファイルの名前を書き込む！
+    df["元ファイル名"] = file 
     all_data.append(df)
 
 # 4. 【合体】溜まったデータを縦に一つに繋げる
