@@ -19,3 +19,9 @@ for file in file_list:
 
 # 4. 【合体】溜まったデータを縦に一つに繋げる
 combined_df = pd.concat(all_data, ignore_index=True)
+
+# 5. 保存
+combined_df.to_excel("annual_sales_combined.xlsx", index=False)
+
+print("すべてのExcelファイルの合体が完了しました！")
+print(combined_df)
