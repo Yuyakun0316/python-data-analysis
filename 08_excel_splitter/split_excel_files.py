@@ -14,3 +14,7 @@ df = pd.DataFrame(data)
 # 2. 保存用フォルダ「output」を作成（すでにあれば何もしない）
 output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
+
+# 3. 【重要】「支店」の種類を抜き出す（東京、大阪、福岡）
+branches = df["支店"].unique()
+print(f"分割する支店リスト: {branches}")
