@@ -10,3 +10,12 @@ for month in ["01", "02", "03"]:
 # 2. 【探し出す】フォルダ内の「sales.xlsx」で終わるファイルをすべて取得
 file_list = glob.glob("*_sales.xlsx")
 print(f"見つかったファイル: {file_list}")
+
+# 3. 【読み込み】見つかったファイルを一つずつ読み込んでリストに溜める
+all_data = []
+for file in file_list:
+    df = pd.read_excel(file)
+    all_data.append(df)
+
+# 4. 【合体】溜まったデータを縦に一つに繋げる
+combined_df = pd.concat(all_data, ignore_index=True)
