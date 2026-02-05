@@ -13,3 +13,12 @@ name_map = {
     "order_date": "注文日",
     "price": "金額"
 }
+
+# 3. 名前を書き換える
+df = df.rename(columns=name_map)
+
+# 4. 保存
+df.to_excel("formatted_report.xlsx", index=False)
+
+print("列名の日本語化が完了しました！")
+print(df)
