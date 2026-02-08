@@ -6,3 +6,14 @@ data = {
     "好きな果物": ["りんご", "バナナ", "りんご", "メロン", "バナナ", "りんご", "オレンジ", "バナナ"]
 }
 df = pd.DataFrame(data)
+
+# 2. どの果物が何個選ばれたかを集計する
+# SQLで言う COUNT(*) GROUP BY 好きな果物 
+fruit_counts = df["好きな果物"].value_counts()
+
+# 3. 保存
+# value_countsの結果は「シリーズ」という形式なので、to_excelでそのまま保存できる
+fruit_counts.to_excel("fruit_frequency.xlsx")
+
+print("出現頻度の集計が完了しました！")
+print(fruit_counts)
