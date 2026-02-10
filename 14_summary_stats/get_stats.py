@@ -11,3 +11,6 @@ stats = df.describe()
 
 # 3. 保存
 stats.to_excel("summary_stats.xlsx")
+
+print("データの要約統計量を出力しました！")
+print(stats)
