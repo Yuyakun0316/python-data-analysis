@@ -17,3 +17,9 @@ status_map = {
 
 # 3. 新しい列を作って、一気に変換する
 df["ステータス名"] = df["ステータスID"].map(status_map)
+
+# 4. 保存
+df.to_excel("store_status_report.xlsx", index=False)
+
+print("ステータスのマッピングが完了しました！")
+print(df)
