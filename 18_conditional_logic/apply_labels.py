@@ -14,3 +14,9 @@ df["区分"] = np.where(df["単価"] >= 10000, "高額品", "消耗品")
 
 # 3. さらに複雑な条件（5万以上なら「要承認」）のフラグ
 df["要承認フラグ"] = np.where(df["単価"] >= 50000, "要確認", "-")
+
+# 4. 保存
+df.to_excel("product_classification.xlsx", index=False)
+
+print("条件によるラベル付けが完了しました！")
+print(df)
