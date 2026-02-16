@@ -7,3 +7,13 @@ data = {
     "売上": [100, 150, 200, 120, 80, 130]
 }
 df = pd.DataFrame(data)
+
+# 2. ピボットテーブルを作成
+# 縦に「支店」、横に「月」を並べて、売上の合計を出す
+pivot_df = df.pivot_table(
+    values="売上", 
+    index="支店", 
+    columns="月", 
+    aggfunc="sum",
+    fill_value=0 # データがない場合は0にする
+).reset_index()
