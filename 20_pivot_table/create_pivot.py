@@ -17,3 +17,9 @@ pivot_df = df.pivot_table(
     aggfunc="sum",
     fill_value=0 # データがない場合は0にする
 ).reset_index()
+
+# 3. 保存
+pivot_df.to_excel("sales_pivot_table.xlsx", index=False)
+
+print("ピボットテーブルの作成が完了しました！")
+print(pivot_df)
